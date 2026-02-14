@@ -2,9 +2,12 @@ const express=require('express')
 
 const app=express();
 
+const {adminAuth}=require("./Middlewares/Auth")
 
-app.use("/",(req,res)=>{
-    res.send("Namaste Mahadev")
+app.use("/admin",adminAuth)
+
+app.use("/admin/getAllData",(req,res)=>{
+    res.send("All Data send")
 })
 
 app.listen(3000,()=>{
